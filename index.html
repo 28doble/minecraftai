@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Minecraft</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        #hotbar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .block-slot {
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .block-slot.selected { border-color: yellow; }
+    </style>
+</head>
+<body>
+    <div id="hotbar"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
