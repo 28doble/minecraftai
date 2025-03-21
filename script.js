@@ -37,18 +37,18 @@ class Block {
 function init() {
     // Scene setup
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x87CEEB); // Sky blue background
+    scene.background = new THREE.Color(0x87CEEB);
     
     camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Camera position - start above ground
+    // Camera position
     camera.position.set(10, 10, 10);
     camera.lookAt(0, 0, 0);
 
-    // Add lights (crucial for visibility)
+    // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
     
@@ -56,7 +56,7 @@ function init() {
     directionalLight.position.set(10, 20, 0);
     scene.add(directionalLight);
 
-    // Controls
+    // Initialize OrbitControls CORRECTLY
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -71,7 +71,6 @@ function init() {
 
     animate();
 }
-
 function generateTerrain(width, depth) {
     for (let x = -width; x < width; x++) {
         for (let z = -depth; z < depth; z++) {
